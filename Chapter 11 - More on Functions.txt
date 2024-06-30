@@ -1,0 +1,129 @@
+Chapter 11: More on functions
+value = a specific piece of data
+functions have a data type;
+
+data type = a group fo values that share characteristics; e.g. strings, numbers, etc
+
+data type of Number() is "function"
+all functions are of data type "function"
+
+when a variable refers to a function, we can use the varibale name to call the function.
+let functionVarName = function(parameters){function body}
+
+functions can be used in different ways:
+-functions may be assigned to variables
+-functions may be used in expressions, such as comparisons
+-functions may be printed using console.log()
+-fucntions may be passed as arguments to other functions
+-functions may be returned from other functions
+
+creating a function:
+function myFunctions(parameter1, parameter2, ..., infiniteParameters) {
+    function body
+}
+
+anonymous functions - functions which do not have names, often assigned to varibales when they are created
+creating an anonymous function:
+function (parameter1, parameter2, ..., infiniteParameters) {
+    functions body
+}
+
+let add = function(a, b) {
+    return a + b;
+};
+
+the variable add refers to the anonymous function,
+we call "add" the variable name containing the function.
+
+an assignment statement should and with ; a semicolon, unlike normal functions, which dont end with a ;
+
+functions are object, and can be passed just like other values
+a function can be passed to other functions as an argument
+
+setTimeout();
+allows a programmer to pass a function, specifiying it should be called at a later point in time.
+
+setTimeout syntax:
+setTimeout(func, delayInMilliseconds);
+
+we can use the second argument to have the function wait a ceratin amount fo time before running.
+
+we can create anonymous functions inside fo setTimeout's argument
+this is ubiquitous in JavaScript
+
+the array method map:
+allows for every element in an array to be maped or translated, using a given function
+
+let mapArray = someArray.map(functionName);
+
+when map() executes -
+-the first elemnt in someArray is passed into functionName as an argument
+-fucntionName executes and returns a new value
+-the return value is added to mappedArray
+-steps 1-3 repeat for each element in someArray
+
+when completed, mappedarray contains each of the individual return values from the mapping function.
+
+map does note mutate the original array.
+when using map, the mapping function is usually an anonymous defined inside the map method call
+
+receiving functions as arguments:
+example : 
+const input = require('readline-sync');
+
+function getValidInput(prompt, isValid) {
+
+    // Prompt the user, using the prompt string that was passed
+    let userInput = input.question(prompt);
+
+    // Call the boolean function isValid to check the input
+    while (!isValid(userInput)) {
+    console.log("Invalid input. Try again.");
+    userInput = input.question(prompt);
+    }
+
+    return userInput;
+}
+
+// A boolean function for validating input
+let isEven = function(n) {
+    return Number(n) % 2 === 0;
+};
+
+console.log(getValidInput('Enter an even number:', isEven));
+
+when we call getValidInput() we pass the string "enter an even number: "
+which is given the readline-sync prompt to check for user input.
+
+we pass a second argument for isEven, which changes the boolean of isValid. altering the while statement in getValidInput.
+
+recursion = the process of solving a larger problem by breaking it into smaller pieces that can all be solved in exactly the same way.
+
+base case = to make sure code stops at the proper time, and identifying a condition that ends the process
+if basecase is true, the recursion ends and the task is complete, if false the function calls itself again.
+
+basecase exmaple:
+function myFunction(parameter){
+    if (basecase is true){
+        solve last small steps
+        end recursion
+    } else {
+        call function again
+    }
+}
+
+a recursive function must fulfill four conditions:
+1. A series of small, identical steps combine ti solve a larger problem,
+2. a basecase must be define. When true, the simplest case halts the recursion.
+3. a recursive function repeatedly calls itself
+4. each time the recrsice function is called, it must alter the data/variables/condition in order to move closer to the base case.
+
+benefits:
+1. fewer lines of code required to accomplish a task
+2. makes code cleaner and more readable. 
+
+drawbacks:
+more abstract than loops
+code is only more readable if reader understand recursion
+
+
