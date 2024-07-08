@@ -1,0 +1,90 @@
+Objectss are data structures that can hold many values, but unlike arrays values in objects have a name or key to reference their variable, AKA a property or their methods.
+These are known as key value pairs.
+
+initializing an object is also known as an object literal
+
+Objects require three things:
+1. a name
+2. a set of keys
+3. keys corresponding values
+
+Objects use {} to enclose their key value pairs.
+
+example:
+let objectName = {
+    key1: value1,
+    key2: value2,
+    key3: value3
+    //this can be repated for as many values as we need in an object. Key calue pairs must be seperated by commas
+}   // and when using multiline, be careful about spaces and tabs
+
+Keys must be valid JavaScript strings
+
+a property is a key/value pair of an object.
+a method performs an action on the object, as it is one of its defined functions
+
+we can refer to values inside of an object by using this.key; you can also reference the object itself - objectName.key
+
+There are two ways to access the value of any object - bracket syntaax and dot notation
+
+bracket syntax = objectName["key"]
+
+dot notation = objectname.key
+
+if referring to a key that includes a space, we must use bracket syntax, as it is a string value.
+
+object values are mutable.
+This means we are changing the property, destroying its original value.
+
+Example of mutating an objects value:
+   let tortoiseOne = {
+       species: "Galapagos Tortoise",
+       name: "Pete",
+       weight: 919,
+       age: 85,
+       diet: ["pumpkins", "lettuce", "cabbage"]
+   };
+
+   console.log(tortoiseOne.weight); //prints original value of 919
+
+   newWeight = tortoiseOne.weight + 10;
+
+   tortoiseOne["weight"] = newWeight;
+
+   console.log(tortoiseOne["weight"]); // prints new value of 929
+
+We can also add new key/value pairs:
+objectName["new-key"] = propertyValue
+
+we must use bracket notation to add a key/value pair.
+
+THE MATH OBJECT;
+Math is a built in object, adn it values cannot be changed or mutated, all built in objects cannot be modified,
+
+Math object has 8 properties:
+1. Pi(3.14......) Math.PI
+2. The square root of 2; Math.SQRT2
+
+The Math object conatins over 30 methods, here are some of the most frequently used;
+Math.abs(number) = Returns the positive value of number;
+Math.ceil(number) = rounds the decimmal number UP to the closest integer
+Math.floor(number) = rounds the decimal number DOWN to the enarest integer.
+Math.max(x,y,z,...) = Returns the largest value from a set of numbers;
+Math.min(x,y,z,...) = returns the smallest value from a set of numbers;
+Math.pow(x,y) = Returns the value of x rasied to the power of y;
+Math.random() = returns a random decimal value between 0 and 1, NOT including 1
+Math.round(number) = Returns number rounded to the nearest integer value
+math.sqrt(number) = returns the square root of number;
+Math.trunc(number) = Removes any decimals, and returns the integer part of number;
+
+Math methods are often combined in order to achieve different results when needed
+
+To select random item from array we can use Math.floor(Math.random()*array.length), we can pass this as an index and it will return a random value from 0 to the last index of the array.
+
+We can round to different amounts oof decimal places by multiplying and dividing by the decimal position.
+if we want two decimals we will multiply by 100 within the round method, and divide that value by 100 outside of the method.
+This is increasable referring to the 10, 100ths, thousandths, ten-thousandths, ad infinium by multiplying and then dividing by that number.
+
+Math.round(1.23*10) / 10 //this will return 1.2
+
+ 
