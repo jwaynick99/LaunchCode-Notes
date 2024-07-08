@@ -1,0 +1,43 @@
+Review:
+for/while loop - a piece of code that iterates over and over again following its own patterns, base upon a designated condition.
+initialization, condition, updater
+for (let i =0; i < n; i++)
+
+a pure function - a functions that always has the same input and output; self contained; does not have side effects.
+
+impure function - a function that changes based upon outside variable; has side effects.
+
+named functions - functions functionName(parameters){ function body }
+anonymous functions - function(parameters){function body} (this can be set to a variable, or be used as a functions argument)
+
+FUNCTIONS AS OBJECTS;
+functions can be passed just like variables and data.
+a function being called can be used as a function argument to carry out its process.
+
+let is a reserved keyword; declares a variable
+let num;
+num = 0;
+console.log(typeof num)
+//this prints data type of the variable num = number
+
+
+function updateValue() {
+    //function body
+}
+
+object.property or object.method() "." in this instance refers to object modifier.
+
+i++ is the same as i = i + 1
+
+recursion = a funnction that calls itself; breaks down a task into smaller and smaller pieces until it completes a task in its simplest form.
+
+arrow functions:
+const factorial = () => {
+    if (f === 0) {
+        return 1; 
+    } else {
+        return f * factorial(f - 1)
+    }
+}
+
+^^^this is honestly a bad example^^^
