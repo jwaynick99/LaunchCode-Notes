@@ -1,0 +1,24 @@
+REVIEW;
+What kind of programming language is java script? A dynamic-high level-interpreted programming; 
+JavaScript is loosely typed
+JavaScript is a RUNTIME language.
+Browsers are often referred to as the client side.
+
+A variable is a container, used for storing values.
+Everythign in JavaScript is an object, except for the 7 primitive data types.
+
+primitive data types:
+string, number, boolean, null, undefined, bigInt, symbol, notation
+
+OBJECTS;
+Objects are data structures that can hold many values, with properties and types;
+we cna access an object properties by using bracket syntax or dot notation. object["key"] object.key
+
+parentheses define a method or functions
+properties do not have parentheses.
+
+directories are folders containing files
+
+statements require a semicolon ; at the end opf the statements
+
+let declaration keeps variables local

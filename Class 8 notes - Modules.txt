@@ -1,0 +1,6 @@
+Assignment 2 overview;
+
+strings and arrays have "collections" referenced by index;
+
+require function 
+

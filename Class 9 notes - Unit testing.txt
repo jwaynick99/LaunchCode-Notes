@@ -1,0 +1,39 @@
+Review;
+a pure function - a function given the same input is giicing the same output, does not have side effects.
+
+a module - the abstraction part of OOP, a modular piece of code that is exported and imported into code.
+
+Why test your code;
+To avoid bugs, checking for different use cases which may throw errors.
+Find regressions. Regression testing - 
+Test and Documentation.
+
+Intro to Jest;
+npm init in console will create a pakage.json
+touch (filename).js will create a new file
+
+JS most often uses  index.js for main project folder, which should hold reference to all other code files in your project.
+
+npm can be used to install dependencies : npm install --save-dev test
+
+package.json scripts needs to contain key value pair of "test": "jest"
+
+the root file is the base folder of your project. package.json and other files are located here.
+
+What is jest;
+Jest is a unit-testing framework
+
+describe string should describe what were testing, often the project name.
+
+describe function takes the description string and the function for all tests.
+
+test functions = test("test string, should often contain 'should'", function(){
+    test body.
+})
+
+test file needs to import file holding the functions(s) we are testing.
+
+test function should be passed expect(the received return) function and toBe(the expected return) function. This is general framework for Jest.
+
+Psuedocode;
+describing steps of our algorithms using informal, self explanatory statements, that are meant to be directly read and understood by humans.
