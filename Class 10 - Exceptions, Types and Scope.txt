@@ -1,0 +1,45 @@
+Scope;
+Scope is the context or enviroment in which variables are declared and can be accessed. 
+Scope dictates the visibilty and lifetime of a variable, determining where our variable is valid and accessible.
+
+global varibales are accessible by all functions or expressions throughout our file.
+local scope variables are only accessible to the function in which it is initialized.
+
+let a = 0;
+
+function coolFunction() {
+    let b = 2;
+    return a + b;
+}
+
+a is global, b is local to coolFunction, therefore b can only be accessed inside of its function.
+execution context is the conditions under which a variable is executed, scope. Scoping affects the varibales behavior at runtime.
+
+More on types;
+primitives, stinrg, number, boolean, null, undefined, symbol and Big Intro
+
+what is an exception?;
+an exception is a runtime error in which a name and message are displayed to provide more information about the error
+exception === runtime error
+
+logic error is not an exception, it is still an error, but it is human error, that does not throw an exception, but does not give us the outptu we wanted.
+
+syntaz error -error in the way JS expects its code to be written.
+
+reference error is thrown when  we try to use a variable that has not yet been defined.
+
+typeError thrown when JS expects something to be oen type, but the value is a different type.
+
+control flow is the order in which the statements are executed. Noraml control flow runs from top to bottom of  a file.
+
+An exception abruptly stops normal flow and stops a program.
+
+try-catch;
+try{
+    code block
+} catch(err){
+    code block that runs if try block throws an error
+    catch block should provide information based on error.
+} finally{
+    code block ran after the try or catch block executes, even if an exception is NOT thrown.
+}

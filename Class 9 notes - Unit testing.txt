@@ -37,3 +37,5 @@ test function should be passed expect(the received return) function and toBe(the
 
 Psuedocode;
 describing steps of our algorithms using informal, self explanatory statements, that are meant to be directly read and understood by humans.
+
+Psuedocode improves efficiency, is easier to read, greater flexibility, enhanced collaboration, and allows local management.
