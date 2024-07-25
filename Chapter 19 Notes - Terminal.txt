@@ -1,0 +1,55 @@
+TERMINAL;
+GUI - graphical user interface - a system designed with icones and visual representations of the machines file system.
+
+CLI - Command LinE interface - uses textual commands rather than drag and drops known in GUIs.
+
+The application used to run CLI is called a terminal. and the prgram interpreting the commans is the shell.
+command line, terminal and shell are often used interchangeably.
+
+terminal can quickly move throught file structures, make new files and directories, remove items from folders, install software, open programs, and run programs directly.
+
+file system - a structure for the computer to store files and folder that make upo the data of the operating system.
+
+inside a filesystem, folder are known as directories, adn folder inside folders are known as subdirectories.
+
+a root directory refers tot he top most directory of a given system. In windows: the C drive. in MAC denoted as the "/"
+
+root directory is the parent directory of the folder insdie of it.
+
+a path is the list of files and folders a computer goes through to find particular items.
+
+absolute path is the path taken from the root directory.
+relative path is the pathj taken to a file form your current directory.
+
+we can use ".." for move up into a parent directory. while "." pulls from the same directory our file is in.
+
+the prompt lets us know that the terminal is rady to accept commands. 
+//prompt example
+LaunchCode-Super-Computer:~ lcstaffmember$
+"Launchcode-Super-Computer" is the name of the computer.
+"~" tells us we are currently iniside the home directory.
+"lcstaffmember" is the username of the person who was logged onto the terminal.
+"$" - we type our commands after this
+
+the terminal rarely denotes when the directory is changed, thus we must keep an eye on the files path in our prompt.
+
+terminal commands:
+ls - lists all files and folders in the current directory
+cd <new-directory> - change directory, navigates from current directory to new-directory
+pwd - prints the path of the curretn directory
+mkdir <new-folder> - mkae new-folder inside the current directory
+touch <new-file> - creates new-file inside current directory
+rm  <old file> - removes old file from the current directory.
+man <command> - prints to the screen the current manual pages for the command.
+clear - empties the terminal window of prevvious commands and outputs.
+cp <source path> <target path> - copies the file or directory at source to target.
+mv < source> <target> moves the file or directory from source to target.
+
+"~" goes to home directory
+"." the current directory
+".." parent directory of current directory
+
+pressing "ctrl-c" will terminate currently running code.
+exit command accmomplishes the same
+
+npm CLI documentation - https://docs.npmjs.com/cli/v10

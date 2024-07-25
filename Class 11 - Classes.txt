@@ -1,0 +1,47 @@
+Went over graded assignment 3 steps;
+
+CLASSES;
+Hwat are classes?
+Classes are templates for creating onjects, They encapuslate data with code to work on that data.
+
+classes in JS are actually built with prototypes, a mechanism by which JS objects inherit features from one another.
+
+imperative - paradigm describing HOW the program should to something, by explicitly specifying each instruction step-by-step. which will mutate the program's state.
+declaritive - a paradigm decsribing WHAT the program does, wihtout explicitly specifying it control flow.
+
+class needs a constructor method, these are parameters to pass into an object made using class.
+inside of our constructor method we use parameters to assign properties to our class object.
+
+we use a this.property during assignment to assign property to a specific object during declaration of new class object.
+INHERITANCE:
+class ChildClass extends ParentClass { // extends notes to interpreter we are pulling constructor from a parent class
+   constructor () { //constructor will be passed parameters from parent class, and then passed through to child SUPER
+      super(); // we must use super to pass properties from parent class
+      // properties
+   }
+}
+
+example with 2 sub classes of parent class:
+class Felidae {
+   constructor() {
+      this.claws = "retractable";
+   }
+}
+
+class Panthera extends Felidae {
+   constructor() {
+      super();
+      this.roar = "loud";
+   }
+}
+
+class Tiger extends Panthera {
+   constructor() {
+      super();
+      this.hasStripes = "true";
+   }
+}
+
+let tigger = new Tiger();
+
+console.log(tigger);
