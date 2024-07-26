@@ -1,0 +1,36 @@
+REVIEW;
+delcarative/imperative paradigm, delcarative is tell our prgogram step by step what we want it to do with specific instruction, imperative is giving a general task
+
+class will by default make a construcotr method inside of itself.
+when we use typeof ClassName, it will returen a function, becasue the constructor is the maker of a class object.
+
+typeof an object made using a class object will return typeof object
+
+primitive data types, num, str, boolean, symbol, big int, null and undefined
+
+we can create empty objects, using empty classes, and then add key values pairs using bracket syntax or dot notation
+
+we can look at the key/value pair in classes like this.key = value, value usually being passed through as a parameter of the class
+
+function calling itself from inside of itself ic alled recursion.
+
+holding a function within a constructor will cause the object to call the function upon creation of the object, adn stores it with the specific object.
+while defining the function outsiode of the construcotr allow us to call the same method for all objects created usign that class.
+
+TERMINAL;
+
+a terminal is a text input/outptu environment, acts a wrapper to input commands the computer will process.
+
+npm init will initialiaze a new package.json file in our directory
+
+HTML;
+Hypertext Markup Language
+inside of an HTML file we can just type "!" and it will give is a basic HTML layout boiler plate file layout
+
+Burger analogy for HTML. html tag covers whole file, head tag contains info for the file, body tag contains the contetns of our page to be dsiplayed.
+
+inline -initializing style or other attirbute inside atag, external referencing another file for attribute, or internal - referencing things in the header.
+
+inline styles are first priority, and will overwrite any external or internal references.
+
+things put into the head of our file will run before the page body is fully loaded.

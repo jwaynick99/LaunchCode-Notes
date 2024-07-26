@@ -1,0 +1,56 @@
+VCS - version control system - a system for tracking changes to a code base adn storing each version.
+VCS assist with keeping backups and a history of the revisions mde to the code base over time.
+This allows rollback to version of code without a particular bug,
+
+Git is the most prevelant VCS amonst programmers and corporations.
+
+A VCS uses a repository or storage container for the code base.
+
+Making updates to the code base is known as making commits.
+
+Anytime a significant change has been msde to the code functionality, a commit should be made.
+
+git status gives us infromation about hte files that have been changed since last commit.
+git add allows the programmer to add a specific or all chnaged files to a commit. 
+git commit -m "message" creats the new commit wiht the files that have been added or altered. adds a message with description of changes made.
+git log displays a log of every commit made in the repository.
+
+git log will return a 40 character hash, which is a key for that specific commit.
+
+git clone <url> will allow a user to clone a remote repository to hteir local machine.
+
+git init will start a new repository, this creates a single, default branch.
+
+git branch will name the current working branch of our repo.
+
+the default branch is usually referred to as the main branch.
+we can change the name of our branch with :   $ git branch -m old-branch-name main
+
+this changes old-branch-name to main
+
+we add in git push for remote repos in order to push our commit from local to remote.
+
+so now we have, git status, git add, git commit, git push, git log
+
+a branch is a seperate version of the same code base, this is useful when to programmers want to work on different projects on the same code base at oen time.
+
+major work should not be performed on the main branch of the code base as to not harm live software.
+
+to create a new branch, we use : git checkout -b <branch-name>, this creates a new branch, and switches the programmer to the created branch.
+
+if we want to switch branches, we use git checkout <branch-name>
+
+a merge occurs when to branches are combined in the repo.
+
+the programmer should first swtich into the branch they would like to merge new branch into, using git checkout, and then use git merge <merging-branch-name>
+
+    $ git checkout main
+      and then
+    $ git merge test
+
+a merge conflict can occur when two programmers work on the same lines of code. Git does not know which version to accept, so it is up to the programmers to figure it out. 
+
+we can perform a dry run using git merge --no-commit --no-ff <branch>
+no commit and no-ff tells git to run the merge would commiting the result to the repo.
+
+we can store commits with git stash, and later add these commits with git stash pop

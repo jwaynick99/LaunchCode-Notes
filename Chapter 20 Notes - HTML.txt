@@ -1,0 +1,117 @@
+When we visit a web page, three main steps happen:
+1. The browser sends a request to the server for the webpage
+2. The server responds with the cdoe that makes up the webpage
+3. The browser takes the code and renders it to present the webpage the the code creates
+
+When the browser renders the page, HTML outlines the structure of the pages content
+
+HTML - Hypertext Markup Language
+
+Hyper text is text tthat includes references to other text that is known as hyperlinks.
+
+Coding languages include a family called markup languages, they annotate the text of a document and define the structure
+
+Two main components of HTML are tags and elements. These define the structure of content.
+
+An element is a segment of an HTML page, often broken down by content type.
+
+A tag is the syntax for the computer processes to determine the type of content of an html element.
+Tags surround the content within the element. So, we always need <opening> and </closing> tags.
+
+<element type> this can include additional specification aout the elements appearance.
+closing tags require / after the beginning bracket. </closing>
+
+<element type>content</element type> 
+
+Semantic HTML is about the specific meaning of the elements.
+Some examples of semantic HTML tags are: <p>, <h1>, <h2>, and <div>.
+
+5 rules of writing html:
+1. Every html files needs a DOCTYPE tag. specifying the HTML version used. When using the current version of HTML, thew doctype is <!DOCTYPE html> this is on of the few tags that does not require a closing tag.
+
+2. the <html> tag denotes the beginning and end of the html the programmer has written.
+
+3. the <head> tag contains data about the web page
+
+4. the <body> tag contains evreything that appears on the page on the document.
+
+5. the <title> tag goes in the <head> of the document, adn browsers require it. It gives the webpage a title that appears in the tab.
+
+example:
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>My Web Page</title>
+      content
+   </head>
+   <body>
+      content
+   </body>
+</html>
+
+the <head> includes links to other files adn other data about the document. browsers do not display content in the head.
+the head also contans styling, using css.
+
+the <body> contains the content to be displayed on the webpage. images, text and code samples.
+
+an html comment <!-- comment here --> <= the worst comment syntax.
+
+indentation and spacing can alter the way renders the page in rare instances
+
+TAGS TO KNOW:
+Bold:	<b>	When surrounding text, makes that text bold.
+Emphasis:	<em>	When surrounding text, makes that text italic.
+Hyperlink:	<a>	Creates hyperlinks.
+Image:	<img>	Denotes images.
+Break:	<br>	A single line break.
+Paragraph:	<p>	Creates a paragraph in text.
+Section:	<span>	Makes a section in text.
+Division:	<div>	Defines an area of the page.
+Form:	<form>	Creates a form for user input.
+Unordered List:	<ul>	Creates an unordered list.
+Ordered List:	<ol>	Creates an ordered list.
+List element:	<li>	Denotes an element of the list. This tag is used for both ordered and unordered lists.
+Table:	<table>	Creates a table on the page.
+Heading Level One:	<h1>	Creates a heading in the text. - headings can go from h1 to h6, with h2 being subheading of h1, and so on.
+                                                            headings by default decrease in size the deeper they go.
+
+rule of thumb is to use only one h1 in an html doc, adn do not skip headin sizes to reduce size of headings.
+
+example using tags for a basic html site:
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Plant-Loving Astronauts</title>
+   </head>
+   <body>
+      <h1>Space Plants Are Cool</h1>
+      <p>NASA discovers that plants can live in <b>outer space</b>. More innovations from this discovery to follow.</p>
+      <!-- add images from NASA of these space plants -->
+   </body>
+</html>
+
+we can add attributes to tags for further specifications  about the elements appearance. examples include alignemtn or alternate text to an image.
+
+   <element attribute = "value">content</element>
+
+we include our attribute before the closing bracket in our opening tag.
+
+attribute example: 
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Plant-Loving Astronauts</title>
+   </head>
+   <body>
+      <h1>Space Plants Are Cool</h1>
+      <p>NASA discovers that plants can live in <b>outer space</b>. More innovations from this discovery to follow.</p>
+      <img src = "space-flower.jpg" alt = "Flower floating in space.">
+      <!-- This image was taken by NASA and is in the Public Domain -->
+   </body>
+</html>
+
+the img tag has two attributes, source <src> adn alternative <alt> source denotes the image being used, while alt should describe the image concisely.
+
+
+
+
