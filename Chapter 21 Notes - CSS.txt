@@ -1,0 +1,88 @@
+CSS;
+Cascading Styling Sheets is a styling sheet language used to add styling to web documents
+with CSS we can change background, font colors, size of elements, and much, much more.
+
+CSS applies styling ruls to elements. 
+style rules apply based on a specific precedence, therein the we get "cascades" of rules
+
+css includes selector and declaration blocks.
+i.e.:
+selector {
+    declaration block
+}
+three selectors of CSS:
+element selector: styles the element used as the selector in our block.
+ID selector: when an element is given and ID, we can use that ID as the selector to style the element.
+Class selector: we can give a group of elements a class in HTML, and then stylew the classes elements.
+
+The declaration block is a series of initilizations describing rules for the selector.
+selector {
+    property: value; //declaration
+    property: value; //declaration
+    property: value; //declaration
+}
+
+we can do inline css inside of our HTML using : <tag style="property:value;property:value;property:value;">content</tag>
+
+every property of css hasa  default value. color for example defaults to black.
+therefore, we only need to style things that we actually want to change.
+
+HTML elements also have a default appearance, and things like inline elements will not start a new line, like <em>, <b>, or <span>
+
+CSS examples:
+element selector: this will style all elements with the <p> tag.
+p {
+    color: pink;
+}
+class selector: this will style all of the elements in the class pink-paragraph, in CSS class selectors are always preceded by a period "."
+in html document: <p class="pink-paragraph">content</p>
+.pink-paragraph {
+    color: pink;
+}
+id selector: this will style all elements that have the ID pinkParagraph. in CSS id is always preceded with #
+in html document: <p id="pinkParagraph">content</p>
+#pinkParagraph {
+    color: pink;
+}
+
+we need to add a css file to our html document. There are three different ways of doing this. 
+
+externally : the css is included in a seperate file that we refer to in the <head> of our html doc : this is good for when we have a lot of css styling that apply to the whole page.
+<head>
+    <title>My Web Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+link is an HTML tag that tells the browser to connect what is inside the linked file to the webpage content.
+rel, type and href are all HTML attributes that are required to properly link our CSS and lets our page know that CSS is what si in the linked file, this also gives a path to the CSS file.
+rel should be set to "stylesheet" as it designates how to link relates to the page.
+type should be "text/css" for all stylesheets.
+href is where we enter the path to the file for our stylesheet.
+
+document/internal:
+All CSS styling is within our HTML document, within the <head>: this is best for when we have very few CSS alterations: the <style> tag is where we will put our selector/declaration blocks.
+<head>
+    <title>My Web Page</title>
+    <style>
+    selector {
+        declaration block
+    }
+    </style>
+</head>
+
+inline: described above, we style each element inline, and our selector/declaration block is put within our tag:
+<tag style="declaration block">content</tag>
+this will only apply the styling to this one instance of our element.
+
+order of precedence:
+Inline CSS will overwrite all other forms, and takes highest precedence.
+internal will overwrite external CSS.
+external is the last to be applied if none others are found for an element.
+
+Rules of CSS;
+common CSS properties.
+font-size : changes the size of our font : defaults to medium or 20px.
+color: changes the color of our text: defaults to black.
+font-family: changes font type: default depends on browser.
+background-color: sets the color of tha background of an element: default is transparent.
+
+
