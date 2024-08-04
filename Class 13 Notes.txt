@@ -1,0 +1,12 @@
+Git and CSS;
+git init creates a local git repository
+git remote add origin <link to git repo> adds to our remote repo
+
+easiest way is cloning a repo using the git link
+
+npm init gives us a boiler plate JS folder, which we can give custom options to.
+
+we use git status for each commit or add to check our repository.
+
+git commit -m "message" [-m lets us add a message to our commit]
+

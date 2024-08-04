@@ -1,0 +1,291 @@
+Web changes that can change after loading are dynamic.
+
+JavaScript run in the browser is called client side JavaScript.
+
+FireFox uses an engine called Spider Monkey to run JS in browser.
+
+The <script> tag in HTML is where we can write JS code or reference an external JS file.
+
+inline JS:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Embedded JavaScript Example</title>
+    <script>
+        // JavaScript code goes here!
+        console.log("Hello from inside the web page!");
+    </script>
+</head>
+<body>
+    contents
+</body>
+</html>
+
+external JS:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>External JavaScript Example</title>
+    <script src = "myjs.js"></script> //myjs.js being a file inside our directory containing code we want ran.
+</head>
+<body>
+    <!-- content -->
+</body>
+</html>
+
+You can use the <script> tag to reference JavaScript files hosted on external servers. Some of these JavaScript files will be files that you have not written yourself but you will want to include in your application.
+
+The DOM (Document Object Model) is a set of objects that represent the browser and documents that make up a webpage. The DOM objects are instances of classes that model the structure of the browser, HTML document, HTML elements, element attributes, and CSS.
+To use DOM in JS we need to use DOM global variables, with their type. 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Using DOM Variables</title>
+    <script>
+        console.log("the page title:", document.title); //references the <title> tag
+        console.log("the protocol:", window.location.protocol); // references the protocol our document is using
+    </script>
+</head>
+<body>
+    contents
+</body>
+</html>
+
+to modify parts of our document using JS we need to access them using the method document.getElementById("element")
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add content using DOM</title>
+</head>
+<body>
+    <p id="main-text">Words about things...</p>
+    <script>
+        let p = document.getElementById("main-text");
+        p.append("More words about things");
+        console.log(p.innerHTML);
+    </script>
+</body>
+</html>
+HTML documents are executed from the top down. Therfore, any script tag must be written after whatever element it is going to alter.
+
+DOM Method MDN: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#Important_Data_Types
+DOM Method W3Schools: https://www.w3schools.com/js/js_htmldom_document.asp
+
+the WINDOW global DOM variable: 
+window is an instance of the Window class, and represents the browser window. With multitabbed windows, refers to the tab in which JS file is running.
+WINDOW METHODS:
+window.alert("String Message") = displays a dialog box with a message and "OK" button to close the box.
+window.confirm("String Message") = Displays a dialog box with a message and returns true if the user clicks “ok” and false if the user clicks “cancel”
+window.location = Object that represents and alters the web address of the window or tab.
+window.console = Represents the debugging console. Most common and basic use is window.console.log().
+
+the DOCUMENT global DOM variable:
+document variable is an instance of the class Document, and represents the HTML webpage that is read and displayed by the browser. 
+the Document class provides properties and methods of HTML elements inside the webpage it refers to.
+DOCUMENT METHODS/PROPERTIES:
+document.title = read or set the title of the docs
+document.getElementById("element-id") = returns a reference of the element that has "element-id"
+document.querySelector("css selector") = returns the FIRST element that matches the css selector
+document.querySelectorAll("css selector") = returns a list of elements matching css selector
+
+the ELEMENT global DOM variable:
+element variable represents an HTML element.
+ELEMENT methods/properties:
+element.getAttribute("id")  = returns the value of the attribute
+element.setAttribute("id", "string value") = sets the attribute to the given value
+element.style.color = allows reading and setting of INLINE CSS properties. //will overwrite .css or internal styling
+element.innerHTML = reads or sets the HTML inside of an element.
+
+EVENTS:
+Events are how programs respond to interactions from users and other programs
+In programming Events are triggered and then handled
+
+triggering causes an event to be sent. Handling is receiving th event and performing an action in response.
+
+JS is an event-driven programming language, a programming pattern where the flow of the program is determined by a series of events. 
+JS uses events to handle user interactions adn make webpages dynamic. JS can also use events to know whe  the state of our webpage components change.
+
+<a> tag is an anchor element, and creates a hyperlink to webpages, files, email addresses, different location on the page, or anything else a URL can address.
+
+Objects like <a> have built in functionality to handle built in events. Whereas <a href="link"> will navigate to the href link.
+
+DOM classes also have built in events.
+
+Handling events: 
+event handlers can be written for non-built in functions.
+
+to write a handler, we need to tell the browser what to do when an event occurs.
+
+DOM uses <em>on event<em> naming conventions when declaring event handlers. 
+We will first delcare events in HTML, using an inline event handler.
+a button event is "onclick":
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button click handler</title>
+</head>
+<body>
+    <button onclick="console.log('you rang...');">Ring Bell</button> //ring bell will occupy the buttons face, and you rang will then be printed to the developer console when button is clicked. Because we use double quotes to define the string, we need to use single quote to print out output
+</body>
+</html>
+
+Any javascript function can be used as an event handler:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button click handler</title>
+    <script>
+        function youRang() {
+            document.getElementById("main-text").innerHTML += "you rang...";
+            console.log("you rang...");
+        }
+    </script>
+</head>
+<body>
+    <h1>demo header</h1>
+    <p id="main-text" class="orange" style="font-weight: bold;">
+        a bunch of really valuable text...
+    </p>
+    <button onclick="youRang();">Ring Bell</button>
+</body>
+</html>
+
+this will make <p> also contain "you rang..." when button is clicked, adding another "you rang..." everytime the button is clicked.
+
+When defining handlers via HTML, be very careful to type the function name correctly. If the function name is incorrect, the event will not be handled. No warning is given, the event is silently ignored.
+
+Using DOM objects and methods to handle events:
+these handlers will be either written in our <script> tags or in an external js file. 
+
+a listener is another name for an event handler, this code waits for an event to happen and responds accordingly.
+we use addEventListener to add an event handler, this method can be used on instances of Window, Document, and Element classes. :
+
+anElement.addEventListener("eventName", aFunction); //anElement refers to a DOM element object. "eventName" is the name of our event that "anElement" supports. aFunction is reference to a JS function.
+
+example: 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Use addEventListener</title>
+</head>
+<body>
+    <p id="main-text" class="orange" style="font-weight: bold;">
+    a bunch of really valuable text...
+    </p>
+    <button id="ring-button">Ring Bell</button>
+    <script>
+    function youRang() {
+        document.getElementById("main-text").innerHTML += "you rang...";
+        console.log("you rang...");
+    }
+    // Obtain a reference to the button element
+    let button = document.getElementById("ring-button");
+    // Set named function youRang as the click event handler
+    button.addEventListener("click", youRang); // click is our event, and our function youRang is our handler. The event is click in this instance because we are listening for the event.
+    </script>
+</body>
+</html>
+
+in reference to onclick vs click on line 186: Be sure to use the correct event name when declaring the event name. An error will NOT be thrown if an invalid event name is given.
+
+important note for online examples using jquery: This chapter uses DOM methods to add event handlers. When searching online, you may find examples using jQuery to add event handlers, which look like .on("click", ...) or .click(...). 
+jQuery is a JavaScript library designed to simplify working with the DOM. jQuery’s popularity has declined as the DOM itself has gained features and improved usablity.
+
+The addEventListener's second argument is any valid JS function, and will is commonly passed through anonymous functions. 
+
+the value of listeners over inline handlers is event parameters can be passed into our event handler:
+anElement.addEventListener("eventName", function(event) {
+    console.log("event type", event.type); //returns the string name of the event
+    console.log("event target", event.target); // returns the element object that was targeted for the event
+});
+
+event bubbling refers to an event being propagated to "ancestor" elements; when an event is triggered on an element taht has parent elements besides the root <HTML> tag.
+events are triggered first on the element that is most closely affected by the event.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Bubbling</title>
+    <style>
+    #toolbar {
+        padding: 20px;
+        border: 1px solid black;
+        background-color:darkcyan;
+    }
+</style>
+</head>
+<body>
+    <div id="toolbar">
+    <button id="ring-button">Ring Bell</button>
+    </div>
+    <script>
+    let button = document.getElementById("ring-button");
+    button.addEventListener("click", function (event) {
+        console.log("button clicked");
+    });
+    document.getElementById("toolbar").addEventListener("click", function (event) {
+        console.log("toolbar clicked");
+    });
+    document.addEventListener("click", function (event) {
+        console.log("document clicked");
+    });
+    </script>
+</body>
+</html>
+
+when button is clicked, prints:
+button clicked
+toolbar clicked
+document clicked
+
+we can use event.stopPropagation() to stop events from being sent top ancestor elements. This will stop parent handlers from being triggered by child triggers.
+
+w3schools Event references: https://www.w3schools.com/jsref/dom_obj_event.asp
+MDN event references: https://developer.mozilla.org/en-US/docs/Web/Events
+
+the DOM includes the load event, which is triggered when the window, elements, AND resources have been loaded by the browser.
+
+HTML elements cannot be interacted with in JS until they have been loaded in the DOM. 
+
+instead of moving the <script> element below any HTML element we want interact with, we can use the load event on the DOM variable window.
+This is a safe alternate to using proper <script> placement.
+When load event occurs, we can be sure all HTML elements have been loaded, and we can start using our script. 
+example: 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window Load Event</title>
+    <script>
+    // add load event handler to window
+    window.addEventListener("load", function() {
+        // put DOM code here to ensure elements have been loaded
+        console.log('window loaded');
+
+        let ring = document.getElementById("ring-button");
+        ring.addEventListener("click", function (event) {
+            console.log("ring ring");
+        });
+
+        let knock = document.getElementById("knock-button");
+        knock.addEventListener("click", function (event) {
+            console.log("knock knock");
+        });
+    });
+    </script>
+</head>
+<body>
+    <div id="toolbar">
+    <button id="ring-button">Ring Bell</button>
+    <button id="knock-button">Knock on Door</button>
+    </div>
+</body>
+</html>
+our scripts can be put in the function  of the window listener, and therefore, will be ready to use.
+
+MOUSE events:
+element.addEventListener("mouseover", function)
+this will call our function everytime our element is moused over.
+
+alternatively we can use the "mouseout" event in a similar way.
