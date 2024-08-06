@@ -1,0 +1,6 @@
+Went over assignment 4 HTML Me Something.
+
+ DOM and Events:
+ <script> tag with a src <script src="script file> will not use scripts written between open and closing <script> tag.
+
+ we can import as many script tags as we would like for each JS file we have in our directory for our page.
