@@ -1,0 +1,117 @@
+HTML Form;
+Used to accept input from user and send to the server.
+
+we create a form using the <form> tag and close with </form>
+the form tag is a container for various types of other elements designed to capture data input from the user.
+an empty <form> will not appear on the page until input have been added inside of it.
+
+input element <input type="text"/> //self closing tag
+used to add interactive fields, which allow user data entry.
+input has two attributes, name and type.
+name is used to indentify the input's value when submitted. 
+type defines which type of value the input represents.
+VALUES FOR INPUT ARE NOT SUBMITTED WITHOUT A NAME ATTRIBUTE.
+
+Label is used to provide a textual label, which informs the user the purpose of the field.
+commonly <label></label> is wrapped around a <input> 
+we can also use an HTML id to assign a label to an input like:
+
+<label for="username">Username</label>
+<input id="username" name="username" type="text"/>
+
+the for inside our label relates to the input id. these attributes MUST be equal. 
+this lets us use the input anywhere, and does NOT have to be inside the <label>
+
+for text inputs, when clicking on the label, the input is focused. Focus means the element is currently selected and ready for input. 
+<form>
+    <label>Username <input type="text" name="username"/></label>
+    <label>Team Name <input type="text" name="team"/></label>
+</form>
+
+when a non-text input label is clicked, a value is selected. 
+<form>
+    <label>Subscribe to Newsletter
+    <input type="checkbox" name="newsletter"/>
+    </label>
+</form>
+
+input value attribute can de used to set the default value. if the value is declared in the input tag, it will be shown in the input. 
+<form>
+    <label>Language <input name="language" type="text" value="JavaScript"/></label> //input field value you will be set to "JavaScript" on loading the page.
+</form>
+
+SUBMISSION;
+form submission is an HTTP request sent to the server containing the values in the form.
+Submission is triggered when clicking a button inside the form.
+can be an <input type="submit"/> or a <button>.
+
+When a form is submitted, a request is sent to the location set in the location attribute of the <form action="location"></form>
+if the action attribute is not present or is empty, the form will submit to the URL of the current page. 
+
+when a form is submitted, a key/value pair is created for each named input. the keys are values of the name attributes, and are paired with the content of the value attributes.
+
+Form submission usign POST;
+to submit using post, set the <form> attribute "method" to POST <form method="POST">
+<form action="" method="POST">
+    <label>Username <input type="text" name="username"></label>
+    <label>Team Name <input type="text" name="team"></label>
+    <button>Submit</button>
+</form>
+
+Form handlers - web server action that receive, inspect, and process requests, responding to the client. 
+USING POST FOR SUBMISSION ADDS VERY LOW LEVEL SECURITY. USING HTTPS ADDS A HIGHER LEVEL vs HTTP,
+
+valid input type attibutes = https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+common input types:
+<input type="text" name="username"/> the default type value: a single line text field
+text area: <textarea name="areaname"></textarea> must have closing tag - a larger multiline text box. 
+<input type="password" name ="password"/>
+
+specialized text input will validate and provide feedback to the uaser based on predefined rules for the type:
+<input type="date" name="flightDate"/> - validates the value is a valid date format, some browsers supply a date picker.
+<input type="email" name="emailAddress"/> - validates the value is a valid email address format. 
+<input type="number" name="fuelTemp"/> - validates teh value is a valid number format.
+
+checkbox:
+<input type="checkbox" name="signUp"/> - a small box for marking form option as checked, best used with <label>
+
+checkbox returns "on" when clicked.
+
+radio inputs:
+<input type="radio" name="crewReady" value="yes"/> - a small circle that allows selecting of one of multiple values. Used in groups of two or more.
+each radio input name should be the same for their group.
+
+select input:
+<select name="weather"><option value="1">clear</option><option value="2">cloudy</option></select> - a menu that allows selection of one option. Requires options to be in <option> tags
+returns key of value selected
+
+Validation with JS;
+we use the DOM to validate inputs. 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check input value with DOM</title>
+</head>
+<body>
+    <form>
+    <label>Language
+        <input type="text" name="language" id="language" value="JavaScript">
+    </label>
+    </form>
+    <button id="update">Update Input Value</button>
+    <script>
+    let button = document.getElementById("update");
+    // add event handler for when button clicked
+    button.addEventListener("click", function() {
+        let input = document.getElementById("language"); //gets the input with id "language"
+        console.log(input.value); //prints the inputs value
+        // now update the value in the input
+        input.value = input.value + " rocks!";
+        console.log(input.value);
+    });
+    </script>
+</body>
+</html>
+
+we need to make sure we are still using the window load handler to when using external scripting, or adding our script to the <head>

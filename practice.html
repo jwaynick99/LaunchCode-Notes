@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Mouseover Event</title>
@@ -20,5 +20,107 @@
       <li>Lane 2</li>
       <li>Lane 3</li>
     </ul>
+  </body>
+</html> -->
+
+<!-- <form>
+  <label>Username <input type="text" name="username" /></label>
+  <label>Team Name <input type="text" name="team" /></label>
+</form> -->
+
+<!-- <form>
+  <label
+    >Subscribe to Newsletter
+    <input type="checkbox" name="newsletter" />
+  </label>
+</form> -->
+
+<!-- <form>
+  <label>Username <input type="text" name="username" /></label>
+  clicking either of these will cause a form submission
+  <input type="submit" />
+  <button>Submit</button>
+</form> -->
+
+<!-- <form
+  action="https://handlers.education.launchcode.org/request-parrot"
+  method="post"
+>
+  <label>Email<input type="email" name="emailAddress" /></label>
+  <label>Report Date<input type="date" name="reportDate" /></label>
+  <label
+    >Crew Count<input type="number" name="crewCount" min="1" max="10"
+  /></label>
+  <button>Send Report</button>
+  <label>crew<input type="checkbox" name="crewReady" /></label>
+  <div>Activities</div>
+  <label>cooking<input type="checkbox" name="cooking" /></label>
+  <label>running<input type="checkbox" name="running" /></label>
+  <label>movies<input type="checkbox" name="movies" /></label>
+  <div>Ingredients</div>
+  <label>Onion<input type="checkbox" name="ingredient" value="onion" /></label>
+  <label
+    >Butter<input type="checkbox" name="ingredient" value="butter"
+  /></label>
+  <label>Rice<input type="checkbox" name="ingredient" value="rice" /></label>
+</form> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Check input value with DOM</title>
+  </head>
+  <body>
+    <form>
+      <label
+        >Language
+        <input type="text" name="language" id="language" value="JavaScript" />
+      </label>
+    </form>
+    <button id="update">Update Input Value</button>
+    <script>
+      let button = document.getElementById("update");
+      // add event handler for when button clicked
+      button.addEventListener("click", function () {
+        let input = document.getElementById("language"); //gets the input with id "language"
+        console.log(input.value); //prints the inputs value
+        // now update the value in the input
+        input.value = input.value + " rocks!";
+        console.log(input.value);
+      });
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Validation</title>
+    <style>
+      label {
+        display: block;
+      }
+      body {
+        padding: 25px;
+      }
+    </style>
+  </head>
+  <script>
+    window.addEventListener("load", function () {
+      let form = document.querySelector("form");
+      form.addEventListener("submit", function (event) {
+        alert("submit clicked");
+      });
+    });
+  </script>
+  <body>
+    <form
+      method="POST"
+      action="https://handlers.education.launchcode.org/request-parrot"
+    >
+      <label>Username <input type="text" name="username" /></label>
+      <label>Team Name <input type="text" name="team" /></label>
+      <button>Submit</button>
+    </form>
   </body>
 </html>

@@ -1,0 +1,134 @@
+HTTP;
+The internet uses a client side model.
+A server is an application that provides resources, ie data, webpages, or images. 
+A client is an application that requests resources form servers.
+
+The clinet on the web is your browser. 
+The browser requests data form a server, the server receives the request, a response is sent back to the client.
+
+Protocols;
+HTTP - hypertext transfer protocol - High-level web communication for transferring files and information, including: HTML, CSS, JavaScript files, images, and other media form submissions
+TCP/IP - transmission control protocol/internet protocol - low level web communication for transferring small chunks of raw data known as packets.
+DNS - Domain Name Service - Translates human-friendly names into serve addresses. 
+
+HTTP protocol;
+the most important for web development, specifies how requests for web data should be constructed, and responses for those requests.
+
+HTTPS is used for a secure connection, it encrypts so it cant be read while in-transit. dencrypted by the server/client and then decrypted once received.
+
+TCP/IP;
+Allows RAW data to get from one place to another. This sends packets, standardized sized, which are small pieces of data over physical connections, routers, modems, cables, wires.
+
+DNS;
+The address book of the internet. Enables ability to read and create memorable names for servers. ie web addresses.
+Every server on the internet has a numerical address/IP. This IP must be determined when sending a message to the server. 
+The sending computer will resolve the domain name by looking it up on a name server. 
+
+A name server is a directory of names and IPs. 
+
+127.0.0.1 is the address used by every computer to refer to itself, also has domain of localhost.
+
+URL - uniform resource locator; AKA web address
+when a client requests from a server, it uses a URL. 
+
+general structure of URLs for LaunchCode: scheme://host:port/path?query_string
+
+scheme - usually specifies the protocol, commonly http, https, also can use ftp, mailto, and file -  always followed by ://
+
+host - specifies where the request should be sent, either an IP or domain.
+
+port (optional) - determines specific application of the host the request will be sent to; some servers may run several applications, so this can be important in those circumstances
+                  typically web servers use port 80 or 442, mySQL usually uses port 3306
+
+path (optional) - the path tells the server WHAT is being requested. follows general file path syntax, usually using names or ending with a specific file. 
+                  If file path is not provided, the ROOT will be used. Typically referring to the home page of a site.
+
+query_string (optional) - begins with "?" and contains a set of key/value pairs joined with "=" and seperated with "&" 
+                          : ?q=launchcode&atb=v167-5__&ia=web (q: launchcode, atb: v167-5__, ia: web)
+                          the query string speicifies what the request is for, it also contains additional data that may be need to complete the request
+                          the path can be thought of as a function, and the query string being its arguments.
+
+HTTP fundamentals are requests and responses.
+Client request -> Web Server -> Web server reponse -> Client server
+
+generic HTTP request:
+GET /blog/ HTTP/1.1
+Host: www.launchcode.org
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:67.0) Gecko/20100101 Firefox/67.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+DNT: 1
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Cache-Control: max-age=0
+
+Request Body
+
+request line - first line - specifies request method, path adn HTTP version being used
+request headers - line 2 until the first blank line - key/value pairs, one per line.
+blank line - signifies the end of request headers
+request body (optional) - takes up the rest of the request
+
+request method specifies the type of action to be carried out on the requested resource. HTTP specifies 8 methods, we only need GET and Protocols
+
+HTTP GET method:
+tells the server what we want to retrieve, and is the most commonly used. Requests foir HTML, CSS and JS files and images. 
+clicking on a link in the browser is calling a GET method.
+GET methods do not have a body, as they are asking for data, and not sending any. 
+usually used for loading a page, conduting a search, loading a page after clicking a link
+
+HTTP POST method;
+tells the server we want to create new data on the server. 
+Post is used when submitting a form. 
+Post request body usually have information and data that the server processes and then stores.
+usually used for signing into a website, sending an email,  making an online purchase. 
+
+HTTP Headers;
+most common:
+Host - the domain or IP address of the server were sending a request to.
+User-Agent - info about the client making a request, usually a browser.
+Accept - the types of data the client is willing to accept in the response body.
+Content-Type - the type of data included in the request body, usually only used in the POST method. 
+
+RESPONSES;
+Each request that reaches a server will receive a response.
+generic response example:
+HTTP/2.0 200 OK
+Date: Wed, 22 May 2019 17:36:50 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 8050
+Last-Modified: Wed, 22 May 2019 17:33:45 GMT
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--Rest of HTML page -->
+</html>
+
+status line - the first line is the response line, contains status information about the response, including the RESPONSE CODE.
+response headers - key/value pairs that contain metadata about the response.
+blank line - indicates end of headers
+response body (optional) - makes up the remainder of the response, usually HTML, CSS or JS
+
+RESPONSE CODES:
+standardized codes that convey results of client request, 3 digit codes using 5 categories
+1XX(informational) - request received, but still processing
+2XX(Successful) - request valid, and successful response
+3XX(Redirection) - client should go elsewhere for request
+4XX(Client Error) - Issue with client request
+5XX(Server Error) - Client request valid, server experienced error while fulfilling response
+
+404 indicates that requested resource does not exist on server. likely due to typo.
+
+RESPONSE HEADERS:
+quite a few, but only a few useful ones
+Content-Type - the type fo data included in the body; text/html, text/css, image/jpg
+Content-Length - The size of the response body in BYTES
+Location - the URL that the client should visit to find a relocated resource
+
+Responses almost ALWAYS have a response body
+for HTML mark up is rendered into a webpage, for CSS the style rules are parsed and applied to the HJTML page
+
+When a browser receives a response, it is loaded into the browsers memory. 
