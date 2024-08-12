@@ -1,0 +1,16 @@
+Fetching Data;
+fetch Function - a global function that will requests or fetches data from an API.
+
+example:
+fetch("https://handlers.education.launchcode.org/static/weather.json").then(function(response) {
+    console.log(response);
+} );
+
+aspects of the fetch function:
+the argument for the function contains the URL of where we are requesting data.
+-fetch("https://handlers.education.launchcode.org/static/weather.json")
+and a method (then) which handles the response.
+ -.then(function(response) {
+        console.log(response);
+    } );
+

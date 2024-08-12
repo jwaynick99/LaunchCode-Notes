@@ -1,0 +1,19 @@
+HTTP;
+high level web communication for transferring files and information. CSS, HTML, JS files, images, and other media. 
+
+TCP/IP;
+low level protocol, allows transer of RAW data. 
+
+URL;
+uniform resource locator - client requests resource from a server using a URL.
+ie: https://www.launchcode.org, https://en.wikipedia.org, https://duckduckgo.com/?q=JavaScript
+encodes information about our HTTP rrequest, whats being requested, and where it is sent. 
+
+components
+scheme://host:port/path?query_string
+URL must have scheme and host; port, path and query are optional.
+the parts must be in this order.
+
+Forms;
+
+
