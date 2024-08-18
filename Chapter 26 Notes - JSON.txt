@@ -1,0 +1,62 @@
+API;
+APIs - application programming interface. 
+Programs use APIs to communicate with other programs. 
+
+APIs use data formats in order to keep requests consistent, sometimes the language requesting data may be different from the language responding to the request.
+A data format is a set of rules that govern how data is written, organized and labeled. 
+
+JSON;
+JavaScript Object Notation - JS data format, most common format for web applications.
+Uses JS object syntax, with some changes.
+
+example:
+{
+   "title": "An Astronaut's Guide to Life on Earth",
+   "author": "Chris Hadfield",
+   "ISBN": 9780316253017,
+   "year_published": 2013,
+   "subject": ["Hadfield, Chris", "Astronauts", "Biography"],
+   "available": true
+}
+
+JSON Rules;
+JSON is a collection of key/value pairs. 
+in example above title key has the value of "An Astronaut's Guide to Life on Earth"
+JSON keys MUST be strings, but the value can be string, number, bool, array, object or null.
+
+JSON can also be a collection of objects, example:
+{
+   "hits": 3,
+   "book": [
+      {
+         "title": "An Astronaut's Guide to Life on Earth",
+            "author": "Chris Hadfield",
+            "ISBN": 9780316253017,
+            "year_published": 2013,
+            "subject": ["Hadfield, Chris", "Astronauts", "Biography"],
+            "available": true
+      },
+      {
+         "title": "Astronaut",
+         "author": "Lucy M. George",
+         "ISBN": 9781609929411,
+         "year_published": 2016,
+         "subject": ["Astronauts", "Juvenile Fiction", "Space stations"],
+         "available": false
+      },
+      {
+         "title": "Astronaut Ellen Ochoa",
+         "author": "Heather E. Schwartz",
+         "ISBN": 9781512434491,
+         "year_published": 2018,
+         "subject": ["Ochoa Ellen", "Women astronauts", "Astronauts", "Biography", "Women scientists", "Hispanic American women"],
+         "available": true
+      }
+   ]
+}
+
+each book from this array can be found with the key "book"
+When requesting to an API it will format that data we requested into JSON, and then respond to our request with the JSON representation.
+
+JSON object differences;
+keys and string values MUST be in double quotes, JSON strings require doubles quotes to be considered a string.
