@@ -1,0 +1,219 @@
+Java is a statically typed language. 
+When a variable or parameter is declared, a data type must be defined. 
+When the variable is declared with its type, the data type CANNOT be changed.
+
+the data type of a variable must be defined BEFORE the variable name, ie:
+String staticVariable = "dog" //variable with typeof string, data type cannot be changed.
+
+dynamic and static are type systems, and define what rules our program must follow when assigning types with variables.
+
+JAVA STRINGS:
+
+strings in Java are immutable, they cannot be altered. 
+strings in JAva must be surrounded by "" double quotes at declaration.
+similar to a string java has variable type "char" which refers to a single character. letter, digit, punctuation, or whitespace "\t" for tab
+
+String methods in Java:
+str.charAt(index) - returns the character at index.
+str.substring(indexStart, indexEnd) - returns characters from start index to end index.
+str.length() - returns length of string.
+str.indexOf(char) - returns index for the first occurrence of char.
+str.split(delimiter) - splits the string into sections at each delimiter, and stores these into an array.
+str.concat(string2).concat(string3) - concat only concatenates one string, but we can chain this to achieve multiple string concatination.
+str.trim() - removes whitespace at the beginning or end of string.
+str.toUpperCase/toLowerCase() - self explanatory.
+str.contains("text") - returns true or false if string does/does not contain arg text.
+str.equals(otherstring) - compares strings and returns true or false for equality.
+
+Java Primitive data types: 
+int - represents positive or negative WHOLE numbers.
+float - represents positive or negative decimal numbers, with up to 7 digits.
+double - repesents pos/neg decimal numbers with 15-16 digits.
+char - represents single unicode character in '' single quotes.
+boolean - true/false NOT capitalized in java.
+
+Float data type sacrifices accuracy for speed, recommend using double to perform calculations with decimal numbers.
+
+NON-PRIMITIVES;
+AKA an object type.
+String - has methods called with dot notation. 
+Primtive data types have no methods.
+
+Autoboxing;
+Converting form a primitive type to an object is boxing, converting from object to primitive is unboxing.
+this quickly became tedious and error prone, so newer version of Java have autoboxing, which when compiled will automatically do these conversion for us. 
+
+Best practice is using primitives whenever possible, but this cant be done when storing data into collections.
+
+int = Integer
+float = Float
+double = Double
+char = Character
+boolean  = Boolean
+
+Java example:
+1   package org.launchcode.java.demos.lsn1datatypes;
+2
+3    import java.util.Scanner;
+4
+5   public class TempConverter {
+6    public static void main(String[] args) {
+7        double fahrenheit;
+8        double celsius;
+9        Scanner input;
+10
+11      input = new Scanner(System.in);
+12        System.out.println("Enter the temperature in Fahrenheit: ");
+13        fahrenheit = input.nextDouble();
+14        input.close();
+15
+16        celsius = (fahrenheit - 32) * 5/9;
+17        System.out.println("The temperature in Celsius is: " + celsius + "°C");
+18    }
+19    }
+
+Line one here is our package, it declares the package where our file resides.
+Our program will run without it, but we need to get used to always declaring our java package.
+packages encapsulate code. Encapsulation refers to shielding code from outside influences.
+
+Line 3 import:
+import statement in Java allows us to access the class, method and data stored in another file.
+import tells the compiler we are going to use a shortened version of the class name.
+java.util.Scanner is used by referring to Scanner. //we can use java.util.Scanner in place of imports, but this is tedious and requires us to type it out in full everytime.
+
+The class naming system in java is hierarchical.
+the FULL name of the scanner class IS java.util.Scanner
+java.util is the package,
+Scanner is the class name.
+
+lines 7-9 declare our variables.
+7 and 8 define doubles, fahrenheit and celsius
+line 9 the input references a Scanner object.
+
+A general rule in Java we must decide our data type for a variable first, then declare the variable before we use it.
+We CAN declare and initialize variables in one line. 
+
+commenting out lines in Java is very much like JS, we use // foir single line comments, and /* */ for multi line comments.
+
+In java Scanner objects let us collect data from the user, a file or over a network.
+
+We do this in the above example by declaring input to a new Scanner(System.in);
+
+System itself is a Java class, System.in is for input, while System.out is for, you guessed it, output.
+
+Line 12 asks the user for a number, and line 13 we use input to read the value provided in the CLI from the user.
+
+We must use the method .nextDouble() as we have already declared fahrenheit as a double.
+
+Common Scanner methods:
+hasNext() - returbs bool - returns true if more data is present
+hasNextInt() - returns bool - returns true if the next item to read is an int
+hasNextFloat() - bool - true if the next item is a float
+hasNextDouble() - bool - true if next item is a double
+nextInt() - int - returns next item to be read as an int
+nextFloat() - float - returns next item to be read as a float
+nextDouble() - double - see above but replace float with double
+next() - string - returns the next item to be read as a string
+nextLine() - string - returns the next LINE to be read as a string
+
+Line 14 closes our scanner object, when the scanner is opened, it can leak resources and allow unintended access to our program.
+scannerObjectName.close() - general syntax for closure
+
+Arrays;
+an array in Java is an ordered, fixed-size collections of elements. 
+all items in an array must be of the same data type. We CANNOT create an array holding both strings and ints.
+
+syntax for creating an array holding 10 integers:
+int[] someInts = new int[10];
+the ^ square brackets tells java we want someInts to store a collection of integers instead of a single number.
+we can change the size of the array by changing the number 10 with any desired number size.
+
+replace the "int" on both sides with the desired type to create an array of strings, doubles, floats...
+
+we can also initialize an array using a literal expression: 
+int[] someOtherInts = {1, 1, 2, 3, 5, 8};
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+here the size of the array is implied by the amount of numbers provided to its declaration.
+Note we use curly braces instead of square braces.
+To access array elements we use bracket notation based one zero-based indexing.
+
+Arrays CANNOT be changed in size after creation.
+
+Java Objects;
+In java objects are structures that have a state and set of behaviors.
+The state of an object includes properties and data that the coder can define and modify.
+behaviors are actions that run when requested, adna re used to evaluate, manipulate or return data.
+
+EVERY VARIABLE IN JAVA REFERS TO A PRIMITIVE OR AN OBJECT.
+
+Java Classes;
+a class is a template for creating objects.
+Classes in java also define a type:
+
+Cat myCat = new Cat();
+
+Cat myCat delcares the variable myCat, adn sets it to be type Cat.
+= new Cat() initializes the variable with a new Cat object.
+Arguments required by the Cat object must be included in the parentheses
+
+Java Reference Variables;
+Reference variables are different from primitive types, as the do not actually store the object in question.
+Instead, it stores reference to an object, which is just a memory address, like pointing an arrow directly to where in memory our object is stored.
+
+Java Static Methods;
+In java functions may not be declared outside of a class.
+Within a class, functions are referred to as Methods, and from now on they will be referred to as such.
+
+referencing two classes, HelloMethod.java and Message.java , HelloMethod has a main method, Message has a getMessage method:
+
+HelloMethod:
+  public class HelloMethods {
+
+     public static void main(String[] args) {
+        String message = Message.getMessage("fr");
+        System.out.println(message);
+     }
+
+  }
+
+Message:
+  public class Message {
+
+     public static String getMessage(String lang) {
+
+        if (lang.equals("sp")) {
+           return "¡Hola, Mundo!";
+        } else if (lang.equals("fr")) {
+           return "Bonjour, le monde!";
+        } else {
+           return "Hello, World!";
+        }
+     }
+  }
+
+Because Message does not have a main method, therefore it cannot be ran on its own, and must be called form elsewhere in order to execute.
+
+Message class contains getMessage, it has the static keyword, unlike main, getMessage has a return type of String instead of void.
+
+getMessage takes a single String param "lang"
+
+In java, we must define the data type of each parameter, and the return value. :
+public static returnedDataType methodName(parameterDataType parameterName) {
+   //code
+}
+
+As such, methods in Java cannot return different data types than its declared return.
+
+In message, if we replaced "Hello, World!" with the int 42, the compiler would error out. 
+
+to call a static method we follow a specific syntax:
+Message.getMessage("fr");
+ClassName.methodName(arguments); //this format must be used to call a static method.
+
+If we wanted to restrict access to this method we could make it private instead of public. 
+
+A rule in Java is the file containing a class marked public MUST be named the same as that class.
+
+
+
+
