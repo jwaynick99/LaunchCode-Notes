@@ -1,0 +1,314 @@
+Classes for Java;
+    Classes may contain fields and methods.
+    Fields contain our data for our class, and methods define actions a class can take.
+    Fields and methods are "members" of a class.
+
+    Creating a class with name HelloWorld:
+    public class HelloWorld {
+
+        public String message = "Hello World"; //a field
+
+        public void sayHello() {
+            System.out.println(message); //a method, prints "Hello World" has no return value
+        }
+    }
+
+    Note no "main" method, due to this we will have to call a method of this class.
+    To call our method sayHello() it needs to be called inside of a main class method.
+
+    public class HelloWorldRunner {
+
+        public static void main(String[] args) {
+                HelloWorld hello = new HelloWorld(); //creating a new instance of our HelloWorld class and initializing it to variable name hello
+                hello.sayHello(); //referencing sayHello() method uusing our instance of HelloWorld class object
+        }
+    }
+
+    "This" key:
+        public void sayHello() {
+            System.out.println(this.message); //using the "this" keyword ALWAYS refers to the object that the gievn code is currently within
+        }
+        The this keyword can be useful when creating a local variable within a method with the same name as a field variable, making sure we are using the correct variable within our local scope method.
+        This does cause the field variable to be shadowed, so this is best to be avoided.
+
+    Modifiers in Java:
+        The access level refeers to who can get or set the value of a field. 
+        For methods, this determines who can call the method.
+
+        Public:
+            public makes the field or method accessible by anyone working with our code. 
+        
+        Private:
+            restricts access to fields or methods so they can only be accessed within the class.
+
+        public class HelloWorld { //without an access level defined, by default it is given default access.
+
+            String message = "Hello World";
+
+            void sayHello() { //no access level defined, default access level given. 
+                System.out.println(message);
+            }
+
+        }
+        Default access gives access to class and package, but does not allow access to world.
+
+        Private only gives access to Class
+
+        Protected same as default, class and package only.
+
+        Public allows access to package, class and world.
+
+        public class HelloWorld {
+
+            private String message = "Hello World"; //access to class ONLY, local field to class.
+
+            public void sayHello() { //access to world, class and package, can be called from outside of this class.
+                System.out.println(message);
+            }
+
+        }
+
+        The fewer public members actually allows more modular code. 
+        We should always try to use the most restrictive access level that we can, 
+        minimizing access to these members allows code to be refactored more easily.
+
+    Encapsulation:
+        Pillars of OOP:
+            Abstraction,
+            Encapsulation,
+            Inheritance,
+            Polymorphism
+        
+        Encapsulation is the bundling of related data and behaviors the operate on the data. 
+        Classes are the epitome of encapsulation, allow our classes to be reusable.
+
+        public class Student {
+
+            String name;
+            int studentId;
+            int numberOfCredits;
+            double gpa;
+
+        }
+        Fields in a class should be declared at the top, they can be added anywhere, but this is best practice.
+
+        Just like within a method, we can inititalize and delcare variables in the same line:
+            int numberOfCredits = 0;
+            double gpa = 0.0;
+        
+        Fields are also referred to as instance variables, since the belong to an instance of a class.
+
+        Getters and Setters:
+            as declared, these variables within our Student class are package-private, which means they can be access in the class and package, but not the world access.
+
+            Rule of thumb is fields should be made private:
+            public class Student {
+
+                private String name;
+                private int studentId;
+                private int numberOfCredits = 0;
+                private double gpa = 0.0;
+
+            }
+
+            to get access to private fields, we use getters and setters, they get and set the given field. 
+
+            If we make setter/getter methods public, others will be able to access and modify these fields.
+
+            getter/setter methods:
+                public String getName() {
+                    return name;
+                }
+
+                public void setName(String aName) {
+                    name = aName;
+                }
+            
+            prefixing a parameter with "a" is common practice, and refers to "argument" variable.
+
+            we can validate our setter/getter methods, and example of this:
+
+                public class Temperature {
+
+                    private double fahrenheit;
+
+                    public double getFahrenheit() {
+                        return fahrenheit;
+                    }
+
+                    public void setFahrenheit(double aFahrenheit) {
+
+                        double absoluteZeroFahrenheit = -459.67;
+
+                        if (aFahrenheit < absoluteZeroFahrenheit) {
+                            System.out.println("Value is below absolute zero");
+                        }
+
+                        fahrenheit = aFahrenheit;
+                    }
+                }
+            
+            Convention for setter/getter method names is setField/getField, in some cases this is a requirement for some libraries, so should be used.
+
+        Properties:
+            A property in Java is a characteristic that users can set.
+            Most often field variables, along with a method with a public setter.
+
+            A property not having a direct corresponding field:
+
+                public double getCelsius() {
+                    return (fahrenheit - 32) * 5.0 / 9.0;
+                }
+
+                    public void setCelsius(double celsius) {
+                        double fahrenheit = celsius * 9.0 / 5.0 + 32;
+                        setFahrenheit(fahrenheit);
+                }
+
+                since we only have one field "fahrenheit" we want to only store one value. Since we are converting to celsius, we will store that converted value in the fahrenheit field.
+
+    Constructors:
+        Constructors allow us to set initial values to our fields when creating a new object from a class.
+
+        In Java constructors have the same name as the class, and are most often declared public, but can have any other access modifier.
+        constructors have no return type:
+
+            public class HelloWorld {
+
+                private String message = "Hello World";
+
+                public HelloWorld(String message) {
+                    this.message = message;
+                }
+
+                public String getMessage() {
+                    return message;
+                }
+
+                public void setMessage(String aMessage) {
+                    message = aMessage;
+                }
+
+            }
+
+        This constructor allows us to create a HelloWorld object with custom messages. 
+
+        the assignments "this.message = message" lets us pass a message into our Class assignment to pass in a different message:
+
+            public class HelloWorld {
+
+                private String message = "Hello World";
+
+                public HelloWorld(String message) {
+                    this.message = message;
+                }
+
+                public String getMessage() {
+                    return message;
+                }
+
+                public void setMessage(String aMessage) {
+                    message = aMessage;
+                }
+
+            }
+        
+        using this constructor we can use the following to define a new HelloWorld class object with a different message passed:
+
+            HelloWorld goodbye = new HelloWorld("Goodbye World");
+            System.out.println(goodbye.getMessage()); // prints "Goodbye World"
+        
+        Default Constructors:
+            Classes do not require a constructor.
+            If one is not provided the Java compiler with generate and empty constructor, known as a "default constructor"/
+
+            when leaving out a constructor from our HelloWorld class above, java creates:
+                public HelloWorld() {}
+            
+            while this is convenient, we almost ALWAYS want to provide a constructor to properly inititalize our objects.
+
+        Overloading Constructors:
+
+            We can provide MULTIPLE constructors for a given class in order to allow for different intiialization scenarios.
+            this is known as constructor overloading.
+
+            When doing this we must ensure that each has a differnent collection of arguments, as determined by the number, order and type of constructor arguments. 
+
+            example:
+                public class Student {
+
+                    private String name;
+                    private final int studentId;
+                    private int numberOfCredits;
+                    private double gpa;
+
+                    public Student(String name, int studentId, int numberOfCredits, double gpa) { // allows construction of each student offering values of each individual field.
+                        this.name = name;
+                        this.studentId = studentId;
+                        this.numberOfCredits = numberOfCredits;
+                        this.gpa = gpa;
+                    }
+
+                    public Student(String name, int studentId) { //allows construction when providing values to only name and ID.
+                        this.name = name;
+                        this.studentId = studentId;
+                        this.numberOfCredits = 0;
+                        this.gpa = 0.0;
+                    }
+
+                    /* getters and setters omitted */
+
+                }
+
+            also, better use of constructor overloading:
+                public class Student {
+
+                    private String name;
+                    private final int studentId;
+                    private int numberOfCredits;
+                    private double gpa;
+
+                    public Student(String name, int studentId, int numberOfCredits, double gpa) {
+                        this.name = name;
+                        this.studentId = studentId;
+                        this.numberOfCredits = numberOfCredits;
+                        this.gpa = gpa;
+                    }
+
+                    public Student(String name, int studentId) {
+                        this(name, studentId, 0, 0); //used to pass provided name and ID into "this", fields numberOfCredits and gpa assigned to int 0 and double 0 respectively.
+                    }
+
+                    /* getters and setters omitted */
+
+                }
+            
+            when defining constructors we should think about:
+                which fields must be initialized for your class to work properly, and each field is initialized.
+
+                Which fields shoudl be initialized by the user creating an object, and which should be initialized by the class itself.
+
+                What are the use cases for our class that we should provide for.
+
+        Methods:
+            a method is a function that belongs to a class. In java, all functions must belong to a class.
+
+            A method not declared within a main class cannot be called without an object of its Class.
+
+            Instanced Methods:
+                an instance method belongs to each object created, and will use the data of each object.
+
+                example using oour student class:
+                    public String studentInfo() {
+                        return (this.name + " has a GPA of: " + this.gpa);
+                    }
+
+        Single Responsibility Principle:
+            States that every module or class should have Responsibility over a single part of the functionality provided by the software,
+            and that Responsibility should be entirely encapsulated by the class.
+
+            Like saying classes should be small.
+                        
+
+
+    
