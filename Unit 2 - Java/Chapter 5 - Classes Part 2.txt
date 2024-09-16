@@ -1,0 +1,268 @@
+More on Classes:
+    Customizing Fields:
+        Final fields:
+            A final field is one that cannot be changed once it is intiialized.
+            final int, final double, final String, final ClassName ...etc,
+            
+            We cannot assign a new object to a final object field, however, we can change the values within the object itself.
+
+            example: 
+                public class FortyTwo {
+
+                    public int intValue = 42;
+
+                }
+
+                public class FinalFields {
+
+                    public final int intValue = 42;
+                    public final double doubleValue;
+                    public final FortyTwo objectValue = new FortyTwo();
+
+                    public static void main(String[] args) {
+
+                        FinalFields demo = new FinalFields();
+
+                        // This would result in a compiler error
+                        demo.intValue = 6;
+
+                        // This is allowed since we haven't initialized doubleValue yet
+                        demo.doubleValue = 42.0;
+
+                        // However, this would result in a compiler error
+                        demo.doubleValue = 6.0;
+
+                        // This would result in a compiler error, since we're trying to
+                        // give objectValue a different object value
+                        demo.objectValue = new FortyTwo();
+
+                        // However, this is allowed since we're changing a field
+                        // inside the final object, and not changing which object
+                        // objectValue refers to
+                        demo.objectValue.intValue = 6;
+                    }
+                }
+
+            Final fields help prevent accidentally changing the value of a field after initialization.
+
+        Static Fields:
+            a static field is one that is shared by all instances of the class.
+
+            This can be used for values that should remain constant across all classes and their objects.
+
+            example:
+                public class Temperature {
+
+                    private double fahrenheit;
+
+                    private static double absoluteZeroFahrenheit = -459.67;
+
+                    public double getFahrenheit() {
+                        return fahrenheit;
+                    }
+
+                    public void setFahrenheit(double aFahrenheit) {
+
+                        if (aFahrenheit < absoluteZeroFahrenheit) {
+                            throw new IllegalArgumentException("Value is below absolute zero");
+                        }
+
+                        fahrenheit = aFahrenheit;
+                    }
+
+                    /* rest of the class... */
+
+                    }
+            
+            absolute zero is an absolute value, that has no good reason to ever be changed, as such should remain consistent across all objects referencing the Temperature Class.
+
+            referencing a static variable outside of its class it is preferred to use the class itself to reference that value. ClassName.staticVariable
+
+                example of static reference:
+                    public class Student {
+
+                        private static int nextStudentId = 1;
+                        private String name;
+                        private final int studentId;
+                        private int numberOfCredits;
+                        private double gpa;
+
+                        public Student(String name, int studentId,
+                                int numberOfCredits, double gpa) {
+                            this.name = name;
+                            this.studentId = studentId;
+                            this.numberOfCredits = numberOfCredits;
+                            this.gpa = gpa;
+                        }
+
+                        public Student(String name, int studentId) {
+                            this(name, studentId, 0, 0);
+                        }
+
+                        public Student(String name) {
+                            this(name, nextStudentId);
+                            nextStudentId++;
+                        }
+
+                        /* getters and setters omitted */
+
+                        }
+                
+            Static variables CAN be changed within their own class, and be used to iterate, in this example, changing our studentID for each new student object created.
+
+        Constants:
+            Java does not have a built in Constant keyword, however, by combining final and static we can achieve the same goal.
+
+            constant variable naming convention should be all CAPS
+
+            constants are generally public variables, as they cannot be altered anyways. 
+
+            constants need to be declared and intitialized within the same line. 
+    
+    Instance and Static Methods:
+        A method belongs to a class, and performs an action (a function, but due to being in a class is inherently called a method.)
+        Methods must be part of a class.
+        Use dot notation to call a method.
+
+        Access modifiers apply to methods.
+        Private methods should be used on methods not useful outside of their class.
+        Public methods contain code that other classes need to use when they implement the class containing those methods.
+        Make methods public ONLY when you excpect other classes to use  them.
+
+        Instance methods:
+            Instance methods define behaviors that are unique or specialized to each class.
+            Every object created from a class will carry a copy of these methods.
+
+            Instance methods rely on the data stored within its individual object.
+
+        Static Methods:
+            public static void main(String[] args) is a great example of static methods.
+
+            they belong to a class as a whole, and not to any of the speicif instances of the class, and are sometimes referred to as "class methods".
+
+            Static methods must NOT rely on data from a specific object.
+
+            Static methods should be called by referencing the classname and then the method using dot notation.
+            ie; ClassName.staticMethod()
+
+            it is technically allowed to call a static method by using an instance of the class, but best practice requires we use the class itself.
+
+            A method should be static when it does not reference any instance fields of the containing class, it can HOWEVER refer to static fields.
+
+            **instance field can only be called by instance methods
+    
+    Special Methods:
+
+        toString():
+            returns a string represenation of a class.
+
+            example:
+                Student person = new Student("Violet");
+                System.out.println(person.toString());
+            
+            output: 
+                org.launchcode.java.demos.classes2.Student@61bbe9ba //default java method output
+
+            we can write over toString built in method to create our own functionality.
+
+            example: 
+                public String toString() {
+                    return name + " (Credits: " + numberOfCredits + ", GPA: " + gpa + ")";
+                }
+
+                    Student person = new Student("Violet");
+                    System.out.println(person.toString());
+            
+            output:
+                Violet (Credits: 0, GPA: 0.0) //new toString output with custom functionality
+            
+            toString is often implicitly called in java, like when we try to System.out.println() on an object.
+        
+        equals:
+            If we try using "==" on two object to compare equality, this will result to false unless the reference variables point to the same object, as objects compared using a normal operator will compare memory location.
+
+            we can .equals(comparison object) to see if the values of the two objects are the same, after we write our own equals method.
+
+            note equals() also applies to all other classes.
+
+            == and equals() will check for identity, not equality.
+
+            example checking student ID:
+                public boolean equals(Object toBeCompared) {
+                    Student theStudent = (Student) toBeCompared;
+                    return theStudent.getStudentId() == getStudentId();
+                }
+            
+            equals input parameter //equals(inputParameter inputVariable) MUST be of type Object, even when working with a named class.
+
+            we must then convert or "cast" the toBeCompared to the correct object type.
+
+            issues with equals():
+                method argument cannot be converted to the proper object type.
+
+                getClass will return the class from which an object was created.
+
+                example solution:
+                    public boolean equals(Object toBeCompared) {
+
+                        if (toBeCompared.getClass() != getClass()) {
+                            return false;
+                        }
+
+                        Student theStudent = (Student) toBeCompared;
+                        return theStudent.getStudentId() == getStudentId();
+                    }
+                
+                toBeCompared might be null.
+
+                example solution:
+                    public boolean equals(Object toBeCompared) {
+
+                        if (toBeCompared == null) {
+                            return false;
+                        }
+
+                        if (toBeCompared.getClass() != getClass()) {
+                            return false;
+                        }
+
+                        Student theStudent = (Student) toBeCompared;
+                        return theStudent.getStudentId() == getStudentId();
+                    }
+                
+                the compared objects are the SAME object.
+
+                example solution:
+                    public boolean equals(Object toBeCompared) {
+
+                        if (toBeCompared == this) {
+                            return true;
+                        }
+
+                        if (toBeCompared == null) {
+                            return false;
+                        }
+
+                        if (toBeCompared.getClass() != getClass()) {
+                            return false;
+                        }
+
+                        Student theStudent = (Student) toBeCompared;
+                        return theStudent.getStudentId() == getStudentId();
+                    }
+                
+            Components of equals:
+                Almost every equals method we create should look similar to our last example in the issues portion above.
+                Should contain:
+                    Reference check, if two args refer to same object, return true immediately
+                    Null check, if arg is null, return false
+                    Class check, ensure safe cast, if unable return false
+                    Cast, conversion of argument passed to equals so we can use setters and getters.
+                    Custom comparison, custom logic to determine whether two objects should be considered equal.
+
+            Characteristics of equals:
+                Reflexivity, for any non-null reference value x, x.equals(x) returns true.
+                Symmetry, For any non-null reference values x and y, x.equals(y) should return true if and only if y.equals(x) also returns true.
+                Transivity, For any non-null reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true.
+                Consistency, As long as x and y do not change x.equals(y) should always return the same result.
+                Non-null, For any non-null reference value x, x.equals(null) should return false.
