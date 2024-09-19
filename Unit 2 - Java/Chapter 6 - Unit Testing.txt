@@ -1,0 +1,61 @@
+Unit Testing:
+    Testing Best Practices:
+        AAA:
+            Arrange the variables your test requires,
+            Act on the methods you test requires,
+            Assert the anticipated comparison of the expected and actual values.
+        
+        Deterministic:
+            EVERY. SINGLE. SOLITARY time a test is run, ti should produce the samr outcome.
+            A test that only passes most of the time is a worthless test.
+
+        Relevant:
+            Tests, as the are written, should be grouped by related class and function.
+
+        Meaningful:
+            No need to test trivial code, i.e. no reason to test getters and setters, unless they offer aditional functionality.
+
+        JUnit:
+            Java Annotations:
+                on the topic of unit testing; "@Test" is used to indicate that a public void method should be treated as a test case
+
+                annontations are formalized bits of information about a program.
+                They operate somewhere between proper syntax and a comment on the code.
+                Annotations do not directly affect the code theyre annotating, but they do supply information to the compiler.
+                
+                Annotations are always indicated with an "@" symbol.
+            
+            JUnit:
+                we call external libraries like JUnit "dependencies"
+
+                a dependancy is a seperately developed program or piece that another program or piece of code uses to carry out its own functions.
+
+                Java test in LaunchCode assignments will rely in JUnit code. 
+
+                Initializing a JUnit test:
+                       //TODO: add emptyTest so we can configure our runtime environment
+                        @Test
+                        public void emptyTest() {
+                            assertEquals(10,10,.001); //(expected, actual, delta) delta is the allowed variance between expected and actual, not ALWAYS require, but for instance, double do require a variance argument.
+                        }
+
+                        //be sure to import if the IDE does not do this by default.
+
+                        import org.junit.jupiter.api.Test;
+                        import static org.junit.jupiter.api.Assertions.*;
+
+                BeforeEach:
+                    @BeforeEach is another annotation, it can be used to setup some data or a condition that we want to have for every test in a given class.
+
+                    conversely; @AfterEach will set a condition to be met after each test in a suite is run.
+
+                Other common Annotations:
+                    assertEquals(Expected, Actual, optionalDelta) - Asserts that two values, expected and actual are equal to each other. (optionally within a given range.)
+
+                    assertFalse(condition) - asserts that a given condition is false
+
+                    assertTrue(condition) - Asserts a given condition is true
+
+                    assertNotNull(object) - Asserts that a given object is not null.
+                    
+                
