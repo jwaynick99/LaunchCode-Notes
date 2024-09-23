@@ -1,0 +1,123 @@
+Inheritance:
+    Inheritance:
+        Inheritance is the second of four pillars of OOP.
+        Inheritance is a mechanism within OOP that allows one class to be based on another class, thus receiving its properties and behaviors.
+        Sometimes also referred to as "sub-typing"
+
+    Inheritance in Java:
+        public class Cat {
+        // ...code for the Cat class...
+        }
+
+        public class HouseCat extends Cat {
+        // ...code for the HouseCat class...
+        }
+
+        House cat inherits from Cat, therefore it receives Cat's data and behaviors,  its fields, properties, and methods.
+        This does not include constructor methods.
+
+        in order to define a class that inherits, we use the "extends" keyword.
+
+        referred to as a sub-class, derived class or child class.
+
+        Classes in java may only extend one class, however, classes can extend each other, creating a hierarchy of classes.
+        
+        Classes b, c and D can inherit from class A, and class E can inherit from class D, which in turn inherits from class A.
+        
+            A
+          / | \
+          B C D
+              |
+              E
+        
+        this is how we visualize Inheritance
+    
+    Inheriting Fields and properties:
+        public class Cat {
+            private String family = "Felidae"
+
+            public String getFamily(){
+                return family;
+            }
+        }
+
+        public class HouseCat extends Cat {
+        // ...code for the HouseCat class...
+        }
+
+        The family field is not directly accessible from Cat to houseCat, however, the getter method is. 
+
+        In this instance, there is no setter method, so family can only be changed within the Cat class.
+
+        We can use the "super"  keyword to fill in our Inherited classes constructor within a newly written constructor in the subclass.
+
+        public HouseCat(String aName, double aWeight) {
+            super(aWeight); //refers to the weight variable within the constructor of parent class Cat
+            name = aName;
+        }
+
+        supers must be the first line called within the subclasses constructor.
+
+        We can use @Override to override a method in the subclass that was originally written within the parent class, for instance:
+            noise method written for Cat parent class:
+                public String noise() {
+                    return "Meeeeeeooooowww!";
+                }
+            
+            overwritten noise method within subclass HouseCat:
+                @Override
+                public String noise() {
+                    return "Hello, my name is " + name + "!";
+                }
+
+        annotations are not required, but offer greater explanation to what certain chunks of code are doing.
+
+        when overriding a mathod from the base class, the method signatures MUST be identical, its name, access level, return type, and parameter types. 
+
+        we can also call the original method instead of the overridden one by using super.methodName(), which will carry out the original behavior,.
+
+    Object Class:
+        equals() and toString() are methods inherited by default Object class, and can be overridden.
+
+        this is the highest level of inheritance, as all classes in Java implicitly inherit from the base Object class.
+
+    Inheriting from Abstraction:
+        Abstract Classes:
+            abstract classes are used to create a base class that others with be derived from, but the abstract class will not be able to make objects of itself.
+            this is usually used as when we have other classes that are going to share some of the same behaviors, but the base class will not be used.
+
+            example:
+                public abstract class Cat{
+                    //cat class definition
+                }
+            
+            therefore, to use behaviors from Cat, we MUST extend it.
+
+            WE can also create an abstract method:
+                public abstract String noise();
+            
+            this can be useful, as all classes extending cat must implement their own behaviors for the noise method.
+
+    Casting:
+        When one class extends another, a field or local variable of the base class can hold an object of the child class, this is inherent because the child class is technically the base class.
+        We can also call methods of these particular objects, and the compiler is smart enough to know which class version method to call.
+        however, this only works for methods defined within the base class, if we try to call a method defined within the child class, but not the parent class, we will get an error.
+
+        If we are sure we have an object that is of the child class, we can "cast" our method:
+            // As long as suki really is a HouseCat, this works
+            ((HouseCat) suki).isSatisfied();
+        
+        HOWEVER, if "suki" is not infact a HouseCat object, child class object, we will experience a runtime exception.
+
+        a runtime exception is an error tha occurs upon running the program and it was not found by the compiler before hand, these are dangerous, and situations where they may occur should be avoided.
+        therefore, casting should only occur when we are CERTAIN it is safe to do so.
+
+        storing objects of one type into another variable or field of a compatible type is called "polymorphism" which is another pillar of OOP.
+
+    Testing Inheritance:
+        
+
+
+
+        
+
