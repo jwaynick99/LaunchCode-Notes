@@ -1,0 +1,43 @@
+Gradle:
+    Gradle is an automated build tool and can handle:
+        Managing dependencies,
+        Testing protocols,
+        Packaging the executable program for deployment.
+
+    A gradle build Represents one or more projects. 
+    Projects are created from a series of tasks.
+
+    Gradle manages tasks based on the fuunction in the build, and organizes them into the build.gradle file.
+
+    build.gradle:
+        is the project build script, and will be referred to as gradle runs through the task list to build the app.
+
+        If using external tasks, we build task methods to gorup tasks by functionallity. 
+
+        Tasks get called to build our project.
+
+    task and plugins:
+        often tasks will be imported from an external resource as "plugins"
+
+        Plugins contain any necessary tasks and scripts to extend a projects capabilities.
+
+        Plugins often need dependencies and external repos.
+
+    dependencies:  
+        external code libraries used by tasks to build our project.
+
+        Gradle will often group related dependencies into conifgurations.
+
+    configuration:
+        a method that bundles dependencies together based on the role.
+
+        configurations can extend from one another, reducing redundancy.
+
+    repositories:
+        Often contains abstracted source code for dependencies
+
+        build.gradle file links up with repositories using the repositories method.
+
+    Windows users can use ctrl-shift-o to refresh a gradle build.
+
+    Debugging in intellij: https://www.youtube.com/watch?v=1bCgzjatcr4 //video by chris
